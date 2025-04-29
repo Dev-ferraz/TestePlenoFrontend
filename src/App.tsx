@@ -1,17 +1,25 @@
-import { useState } from 'react'
-
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Login } from "./components/login"; 
+import { CadastroUsuarioView } from "./views/CadastroUsuarioView/CadastroUsuarioView";
+import { HomeView } from "./views/HomeView/HomeView";
 
 function App() {
-  const [count, setCount] = useState(0)
-  setCount(1);
-  console.log(count);
   return (
-    <>
-      <div>
-        <h3>Teste Frontend PL </h3>
-      </div>
-    </>
-  )
+    <Router>
+      <Routes>
+        {/* Login */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Cadastro */}
+        <Route path="/CadastroUsuarioView" element={<CadastroUsuarioView />} />
+
+        {/* Home */}
+        <Route path="/HomeView" element={<HomeView />} />
+
+        {/* Outras rotas, se tiver */}
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
